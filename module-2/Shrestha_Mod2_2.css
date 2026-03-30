@@ -24,7 +24,6 @@ address {
     text-align: center;
 }
 
-/* Link styling */
 a {
     font-weight: bold;
     font-size: 1.25em;
@@ -32,7 +31,6 @@ a {
     text-decoration: none;
 }
 
-/* Correct pseudo-class order */
 a:visited {
     color: #6A4E8A;
 }
