@@ -36,6 +36,8 @@ Each module folder contains assignment files including HTML, CSS, and supporting
 
 This module focuses on:
 
+
+
 \- HTML structure and semantic elements
 
 \- Linking external CSS files
