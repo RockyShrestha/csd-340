@@ -1,0 +1,76 @@
+/* 
+    Name: Rakesh Shrestha
+    Assignment: Module 3.3
+*/
+
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#left-div {
+    width: 45%;
+    float: left;
+}
+
+#right-div {
+    width: 45%;
+    float: right;
+}
+
+#bottom-div {
+    width: 100%;
+    clear: both;
+    text-align: right;
+    margin-top: 635px;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+
+
+h3 {
+    font-weight: 500;
+    margin-top: 0;
+}
+
+ol,
+ul {
+    font-weight: 300;
+    padding: 10px;
+    list-style-position: inside;
+    margin-top: 15px;
+}
+
+.box {
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.dashed {
+    border: 1px dashed red;
+}
+
+ul {
+    list-style-type: upper-roman;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
