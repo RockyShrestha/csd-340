@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="JavaScript Exercise Part 1 for CSD 340 Module 9 assignment">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Bellevue University, student introduction">
+    <meta name="author" content="Rakesh Shrestha">
+
+    <!-- Link to CSS (same stylesheet as Module 2) -->
+    <link rel="stylesheet" href="../module-2/Shrestha_Mod2_2.css">
+
+    <!-- Title -->
+    <title>CSD 340 Web Development with HTML and CSS</title>
+
+    <style>
+        /* Additional styles for the JavaScript button sections */
+        .word-controls {
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #f4f0f9;
+            border-left: 4px solid #4F3674;
+        }
+
+        .word-controls p {
+            margin: 6px 0;
+            font-style: normal;
+            text-indent: 0;
+        }
+
+        button {
+            margin: 4px 6px 4px 0;
+            padding: 7px 16px;
+            background-color: #4F3674;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #D6A800;
+            color: #222;
+        }
+
+        span.blank {
+            font-weight: bold;
+            color: #cc0000;
+        }
+
+        .student-info {
+		    background-color: #f8f8f8;
+		    border: 1px solid #ddd;
+		    padding: 12px 18px;
+		    margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <h1>Assignment 9.3: JavaScript - Part 1</h1>
+
+        <div class="student-info">
+		    <p><strong>Name:</strong> Rakesh Shrestha</p>
+		    <p><strong>Date:</strong> May 17, 2026</p>
+		    <p><strong>Assignment:</strong> Module 9.3 JavaScript - Part 1</p>
+		</div>
+
+        <h2>Chapter 1: About Me</h2>
+
+        <!-- Paragraph 1 (with intro class) -->
+        <p class="intro">
+            I am originally from Nepal, a country known for its
+            <span id="word1" class="blank">________</span>
+            beauty and cultural diversity. Growing up, I was surrounded by strong family values and a supportive environment. These early experiences, along with the tremendous support from my parents and siblings, especially my father, played a significant role in shaping my personality and strengthening my commitment to continuous learning.
+        </p>
+
+        <!-- Paragraph 2 (with sentence span) -->
+        <p>
+            During my childhood, I developed an interest in understanding how things work and solving problems. I enjoyed exploring new ideas and learning from different experiences.
+            <span class="sentence">This curiosity eventually led me toward a strong interest in
+            <span id="word2" class="blank">________</span>
+            and software development.</span>
+        </p>
+
+        <!-- Paragraph 3 -->
+        <p>
+            In my free time, I enjoy learning programming concepts, researching business ideas, and thinking about
+            <span id="word3" class="blank">________</span>
+            solutions to real world problems. I also like staying updated with new technologies. These activities keep me motivated and focused on my long term goals.
+        </p>
+
+        <!-- Paragraph 4 -->
+        <p>
+            Family plays an important role in my life, and I truly value their constant support. I believe that education is
+            <span id="word4" class="blank">________</span>
+            for both personal and professional growth. My goal is to develop strong technical skills and make meaningful contributions to our society through the field of technology.
+        </p>
+
+        <!-- JavaScript Button Controls -->
+        <div class="word-controls">
+            <p><strong>Click the buttons below to reveal each missing word:</strong></p>
+            <p>
+                <button onclick="fillWord1()">Reveal Word 1: "natural"</button>
+                <button onclick="fillWord2()">Reveal Word 2: "technology"</button>
+                <button onclick="fillWord3()">Reveal Word 3: "innovative"</button>
+                <button onclick="fillWord4()">Reveal Word 4: "essential"</button>
+            </p>
+        </div>
+
+        <!-- Horizontal Line -->
+        <hr />
+
+        <!-- Address Section -->
+        <address>
+            <p>
+                <a href="https://www.bellevue.edu" target="_blank">
+                    Bellevue University
+                </a>
+            </p>
+            <p>1000 Galvin Road South</p>
+            <p>Bellevue, NE 68005</p>
+        </address>
+
+    </div><!-- end #container -->
+
+    <script>
+        // Four JavaScript variables holding the string values for each span tag
+        var word1 = "natural";
+        var word2 = "technology";
+        var word3 = "innovative";
+        var word4 = "essential";
+
+        // Four functions — one per button — that replace the underscores with the variable value
+        function fillWord1() {
+            document.getElementById("word1").innerHTML = word1;
+        }
+
+        function fillWord2() {
+            document.getElementById("word2").innerHTML = word2;
+        }
+
+        function fillWord3() {
+            document.getElementById("word3").innerHTML = word3;
+        }
+
+        function fillWord4() {
+            document.getElementById("word4").innerHTML = word4;
+        }
+    </script>
+
+</body>
+</html>
