@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="280" viewBox="0 0 420 280">
+  <rect width="420" height="280" fill="#eafaf1"/>
+  <rect x="45" y="170" width="330" height="55" rx="18" fill="#c8e6c9"/>
+  <circle cx="195" cy="118" r="55" fill="#b87945"/>
+  <ellipse cx="150" cy="105" rx="24" ry="42" fill="#7a4d2a"/>
+  <ellipse cx="240" cy="105" rx="24" ry="42" fill="#7a4d2a"/>
+  <circle cx="178" cy="107" r="7" fill="#212121"/>
+  <circle cx="212" cy="107" r="7" fill="#212121"/>
+  <ellipse cx="195" cy="128" rx="14" ry="10" fill="#222"/>
+  <path d="M175 145 Q195 170 215 145" stroke="#222" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M300 65 l10 20 22 3 -16 15 4 22 -20 -10 -20 10 4 -22 -16 -15 22 -3z" fill="#f1c40f"/>
+  <text x="210" y="250" text-anchor="middle" font-family="Arial" font-size="22" fill="#1e7e34">Buddy is adopted!</text>
+</svg>

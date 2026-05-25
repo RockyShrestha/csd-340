@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <link rel="stylesheet" href="site.css">
+    <script>
+        function changePetImage(petName, imageFile, message) {
+            var displayImage = document.getElementById(petName + "Image");
+            var displayMessage = document.getElementById(petName + "Message");
+
+            displayImage.src = imageFile;
+            displayMessage.innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <p class="student-info">Rakesh Shrestha | May 24, 2026 | Module 10.3 Assignment</p>
+        <h1>Assignment 10.3: JavaScript - Part 2</h1>
+        <p class="intro">
+            This page demonstrates JavaScript event handling. Click each pet image to change
+            the graphic </br> and display a new message.
+        </p>
+    </header>
+
+    <main>
+        <section class="pet-card">
+            <h2>Buddy the Dog</h2>
+            <img id="dogImage"
+                 src="images/dog_before.svg"
+                 alt="Buddy the dog before being adopted"
+                 onclick="changePetImage('dog', 'images/dog_after.svg', 'Buddy has been adopted and is ready for his new home!')">
+            <p id="dogMessage">Click Buddy's picture to update his story.</p>
+        </section>
+
+        <section class="pet-card">
+            <h2>Luna the Cat</h2>
+            <img id="catImage"
+                 src="images/cat_before.svg"
+                 alt="Luna the cat before receiving a toy"
+                 onclick="changePetImage('cat', 'images/cat_after.svg', 'Luna received a toy and is now relaxed and happy!')">
+            <p id="catMessage">Click Luna's picture to update her story.</p>
+        </section>
+
+        <section class="pet-card">
+            <h2>Sky the Bird</h2>
+            <img id="birdImage"
+                 src="images/bird_before.svg"
+                 alt="Sky the bird before singing"
+                 onclick="changePetImage('bird', 'images/bird_after.svg', 'Sky is singing because visitors are nearby!')">
+            <p id="birdMessage">Click Sky's picture to update his story.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="../index.html">Back to Landing Page</a></p>
+    </footer>
+</body>
+</html>
