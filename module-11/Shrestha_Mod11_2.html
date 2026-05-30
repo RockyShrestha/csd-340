@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--
+    Name:        Rakesh Shrestha
+    Date:        May 29, 2026
+    Assignment:  Module 11.2 - JavaScript Exercise, Part 3
+    Course:      CSD340-T301 Web Development with HTML and CSS
+
+    Description:
+    This page creates a simple To Do List using JavaScript arrays.
+    The user can add a task, delete the last task, delete a selected task,
+    sort the list, and view the current list on the page.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #222222;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            color: #2d5f88;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .student-info {
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            color: #444444;
+        }
+
+        .instructions {
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #b7b7b7;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .button-row {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 16px;
+            margin: 5px 6px 5px 0;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+
+        #addButton {
+            background-color: #3f8f46;
+        }
+
+        #deleteButton {
+            background-color: #c0392b;
+        }
+
+        #deleteSelectedButton {
+            background-color: #2d5f88;
+        }
+
+        #sortButton {
+            background-color: #2d6cdf;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        #display {
+            background-color: #f9fafc;
+            border: 1px solid #dddddd;
+            padding: 15px;
+            min-height: 80px;
+            border-radius: 5px;
+        }
+
+        ol {
+            margin-top: 10px;
+        }
+
+        .empty-message {
+            color: #666666;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        footer a {
+            color: #2d5f88;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Assignment 11.2: JavaScript - Part 3</h1>
+
+        <div class="student-info">
+            <p><strong>Name:</strong> Rakesh Shrestha</p>
+            <p><strong>Date:</strong> May 29, 2026</p>
+            <p><strong>Assignment:</strong> Module 11.2 JavaScript Exercise, Part 3</p>
+        </div>
+
+        <p class="instructions">
+            Enter a task in the text box and click <strong>Add</strong> to add it to the list.
+            Click <strong>Delete Last Entry</strong> to remove the most recent task.
+            You can also choose an item from the dropdown and click <strong>Delete Selected Item</strong>.
+            Click <strong>Sort</strong> to place the tasks in alphabetical order.
+        </p>
+
+        <input type="text" id="taskInput" placeholder="Enter a task">
+
+        <select id="taskSelect">
+            <option value="">-- Select item to delete --</option>
+        </select>
+
+        <div class="button-row">
+            <button id="addButton" onclick="addTask()">Add</button>
+            <button id="deleteButton" onclick="deleteLastEntry()">Delete Last Entry</button>
+            <button id="deleteSelectedButton" onclick="deleteSelectedItem()">Delete Selected Item</button>
+            <button id="sortButton" onclick="sortTasks()">Sort</button>
+        </div>
+
+        <h2>Things To Do</h2>
+        <div id="display">
+            <p class="empty-message">No tasks have been added yet.</p>
+        </div>
+
+        <footer>
+            <p><a href="../index.html">Return to Landing Page</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // This array stores the user's to-do list items.
+        var tasks = [];
+
+        // Adds the text box value to the array.
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var task = taskInput.value.trim();
+
+            if (task === "") {
+                alert("Please enter a task before clicking Add.");
+                return;
+            }
+
+            tasks.push(task);
+            alert("Added: " + task);
+
+            taskInput.value = "";
+            displayTasks();
+            updateSelectList();
+        }
+
+        // Deletes the last item in the array.
+        function deleteLastEntry() {
+            if (tasks.length === 0) {
+                alert("There are no tasks to delete.");
+                return;
+            }
+
+            var deletedTask = tasks.pop();
+            alert("Deleted: " + deletedTask);
+
+            displayTasks();
+            updateSelectList();
+        }
+
+        // Deletes the item selected from the dropdown list.
+        function deleteSelectedItem() {
+            var taskSelect = document.getElementById("taskSelect");
+            var selectedIndex = taskSelect.value;
+
+            if (selectedIndex === "") {
+                alert("Please select a task to delete.");
+                return;
+            }
+
+            var deletedTask = tasks[selectedIndex];
+            tasks.splice(selectedIndex, 1);
+
+            alert("Deleted: " + deletedTask);
+
+            displayTasks();
+            updateSelectList();
+        }
+
+        // Sorts the array in alphabetical order.
+        function sortTasks() {
+            if (tasks.length === 0) {
+                alert("There are no tasks to sort.");
+                return;
+            }
+
+            tasks.sort();
+            alert("The list has been sorted.");
+
+            displayTasks();
+            updateSelectList();
+        }
+
+        // Displays all items currently stored in the array.
+        function displayTasks() {
+            var display = document.getElementById("display");
+            var output = "";
+
+            if (tasks.length === 0) {
+                display.innerHTML = '<p class="empty-message">No tasks have been added yet.</p>';
+                return;
+            }
+
+            output += "<ol>";
+
+            for (var i = 0; i < tasks.length; i++) {
+                output += "<li>" + tasks[i] + "</li>";
+            }
+
+            output += "</ol>";
+            display.innerHTML = output;
+        }
+
+        // Updates the dropdown list so the user can delete a selected item.
+        function updateSelectList() {
+            var taskSelect = document.getElementById("taskSelect");
+            taskSelect.innerHTML = '<option value="">-- Select item to delete --</option>';
+
+            for (var i = 0; i < tasks.length; i++) {
+                taskSelect.innerHTML += '<option value="' + i + '">' + tasks[i] + '</option>';
+            }
+        }
+    </script>
+</body>
+</html>
